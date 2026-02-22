@@ -1,0 +1,47 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Type Check & Build
+        run: yarn build
+
+      - name: Run Tests
+        run: yarn test --run
+
+  deploy:
+    needs: build-and-test
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Render Deployment
+        # You need to set RENDER_DEPLOY_HOOK_URL in your GitHub repository secrets
+        # You get this URL from your Render.com dashboard -> Settings -> Deploy Hook
+        run: |
+          if [ -n "${{ secrets.RENDER_DEPLOY_HOOK_URL }}" ]; then
+            curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
+          else
+            echo "RENDER_DEPLOY_HOOK_URL secret is not set, skipping deployment trigger."
+          fi

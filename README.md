@@ -4,7 +4,7 @@ Personal portfolio website built with React, Vite, TypeScript, Tailwind CSS, and
 
 ## Live Site
 
-[https://yourdomain.com](https://yourdomain.com) *(update after deployment)*
+[https://yourdomain.com](https://yourdomain.com) *(TBC)*
 
 ## Tech Stack
 
@@ -20,10 +20,10 @@ Personal portfolio website built with React, Vite, TypeScript, Tailwind CSS, and
 ## Getting Started
 
 ```bash
-git clone https://github.com/yourusername/portfolio.git
-cd portfolio
-npm install
-npm run dev        # http://localhost:5173
+git clone https://github.com/ethannjw/ethan-portfolio.git
+cd ethan-portfolio
+yarn install
+yarn dev        # http://localhost:5173
 ```
 
 ## Customising the Portfolio

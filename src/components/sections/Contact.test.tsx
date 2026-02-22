@@ -1,6 +1,6 @@
 import React from 'react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, waitFor } from '@/test/utils';
+import { render, screen, waitFor, fireEvent } from '@/test/utils';
 import userEvent from '@testing-library/user-event';
 
 vi.mock('framer-motion', () => ({
@@ -32,16 +32,16 @@ describe('Contact', () => {
 
     it('renders email, GitHub, LinkedIn links with correct hrefs', () => {
         render(<Contact />);
-        const emailLink = screen.getByLabelText('Email');
+        const emailLink = screen.getByRole('link', { name: 'Email' });
         expect(emailLink).toHaveAttribute('href', 'mailto:your@email.com');
 
-        const githubLink = screen.getByLabelText('GitHub');
+        const githubLink = screen.getByRole('link', { name: 'GitHub' });
         expect(githubLink).toHaveAttribute(
             'href',
             'https://github.com/yourusername'
         );
 
-        const linkedinLink = screen.getByLabelText('LinkedIn');
+        const linkedinLink = screen.getByRole('link', { name: 'LinkedIn' });
         expect(linkedinLink).toHaveAttribute(
             'href',
             'https://linkedin.com/in/yourusername'
@@ -50,37 +50,38 @@ describe('Contact', () => {
 
     it('renders name, email, message fields', () => {
         render(<Contact />);
-        expect(screen.getByLabelText('Name')).toBeInTheDocument();
-        expect(screen.getByLabelText('Email')).toBeInTheDocument();
-        expect(screen.getByLabelText('Message')).toBeInTheDocument();
+        expect(screen.getByRole('textbox', { name: 'Name' })).toBeInTheDocument();
+        expect(screen.getByRole('textbox', { name: 'Email' })).toBeInTheDocument();
+        expect(screen.getByRole('textbox', { name: 'Message' })).toBeInTheDocument();
     });
 
     it('shows validation errors when submitting empty form', async () => {
         const user = userEvent.setup();
         render(<Contact />);
-        const submitBtn = screen.getByText('Send Message');
+        const submitBtn = screen.getByRole('button', { name: /send message/i });
         await user.click(submitBtn);
-        expect(screen.getByText('Name is required')).toBeInTheDocument();
-        expect(screen.getByText('Email is required')).toBeInTheDocument();
-        expect(screen.getByText('Message is required')).toBeInTheDocument();
+        expect(screen.getByText(/name is required/i)).toBeInTheDocument();
+        expect(screen.getByText(/email is required/i)).toBeInTheDocument();
+        expect(screen.getByText(/message is required/i)).toBeInTheDocument();
     });
 
     it('shows success message after successful submission', async () => {
         const user = userEvent.setup();
-        vi.spyOn(globalThis, 'fetch').mockResolvedValueOnce(
-            new Response(null, { status: 200 })
-        );
+        vi.spyOn(globalThis, 'fetch').mockResolvedValueOnce({
+            ok: true,
+        } as any);
 
         render(<Contact />);
 
-        await user.type(screen.getByLabelText('Name'), 'John Doe');
-        await user.type(screen.getByLabelText('Email'), 'john@example.com');
-        await user.type(screen.getByLabelText('Message'), 'Hello there');
-        await user.click(screen.getByText('Send Message'));
+        fireEvent.change(screen.getByRole('textbox', { name: 'Name' }), { target: { value: 'John Doe' } });
+        fireEvent.change(screen.getByRole('textbox', { name: 'Email' }), { target: { value: 'john@example.com' } });
+        fireEvent.change(screen.getByRole('textbox', { name: 'Message' }), { target: { value: 'Hello there' } });
+
+        await user.click(screen.getByRole('button', { name: /send message/i }));
 
         await waitFor(() => {
             expect(
-                screen.getByText('Message sent successfully!')
+                screen.getByText(/Message sent successfully!/i)
             ).toBeInTheDocument();
         });
     });
