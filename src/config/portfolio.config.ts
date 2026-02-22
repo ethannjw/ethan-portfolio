@@ -182,6 +182,6 @@ export const portfolioConfig: PortfolioConfig = {
         heading: "Let's Work Together",
         subtext:
             'Open to full-time roles, contract work, and interesting collaborations. Based in Singapore — happy to work hybrid or remotely.',
-        formspreeEndpoint: 'https://formspree.io/f/YOUR_FORM_ID',
+        formspreeEndpoint: 'https://formspree.io/f/xaqdpzky',
     },
 };
