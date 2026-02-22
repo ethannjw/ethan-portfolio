@@ -2,21 +2,21 @@ import type { PortfolioConfig } from '@/types';
 
 export const portfolioConfig: PortfolioConfig = {
     personal: {
-        name: 'Gerard Robinson',
+        name: 'Ethan Ng',
         title: 'Senior Software Engineer',
         location: 'Singapore',
-        email: 'your@email.com',
-        github: 'https://github.com/yourusername',
-        linkedin: 'https://linkedin.com/in/yourusername',
+        email: 'ethannjw@gmail.com',
+        github: 'https://github.com/ethannjw',
+        linkedin: 'https://linkedin.com/in/ethannjw',
         resumeUrl: '/resume.pdf',
         avatarUrl: '/avatar.jpg',
     },
 
     seo: {
-        siteTitle: 'Gerard Robinson | Senior Software Engineer',
+        siteTitle: 'Ethan Ng | Senior Software Engineer',
         description:
             'Senior Software Engineer based in Singapore specialising in cloud infrastructure, AI/ML systems, and full-stack development.',
-        siteUrl: 'https://yourdomain.com',
+        siteUrl: 'https://ethannjw.com',
         ogImage: '/og-image.png',
     },
 
@@ -24,7 +24,6 @@ export const portfolioConfig: PortfolioConfig = {
         greeting: "Hi, I'm",
         taglines: [
             'Cloud Infrastructure',
-            'AI/ML Systems',
             'Full-Stack Development',
             'DevOps & Automation',
         ],
@@ -36,12 +35,12 @@ export const portfolioConfig: PortfolioConfig = {
         bio: [
             "I'm a Senior Software Engineer based in Singapore with a Computer Science degree and extensive experience across cloud infrastructure, AI/ML systems, and full-stack development.",
             'I specialise in building scalable distributed systems on AWS, self-hosting with Proxmox and Docker, and integrating large language models into production workflows. I care deeply about clean architecture, automated testing, and systems that are observable and maintainable.',
-            'Currently at Sanderson Ikas. Open to challenging roles in cloud-native engineering, ML infrastructure, and platform engineering.',
+            'Currently at Autodesk. Open to challenging roles in cloud-native engineering, ML infrastructure, and platform engineering.',
         ],
         stats: [
             { label: 'Years Experience', value: '5+' },
             { label: 'Based In', value: 'Singapore' },
-            { label: 'AWS Certified', value: 'In Progress' },
+            { label: 'AWS Cloud Practitioner Certified', value: 'True' },
         ],
     },
 
@@ -67,7 +66,6 @@ export const portfolioConfig: PortfolioConfig = {
             category: 'DevOps & Containers',
             items: [
                 { name: 'Docker', iconName: 'SiDocker' },
-                { name: 'Kubernetes', iconName: 'SiKubernetes' },
                 { name: 'GitHub Actions', iconName: 'SiGithubactions' },
             ],
         },
@@ -102,9 +100,9 @@ export const portfolioConfig: PortfolioConfig = {
         {
             id: 'exp-1',
             role: 'Senior Software Engineer',
-            company: 'Sanderson Ikas',
+            company: 'Autodesk Inc.',
             location: 'Singapore',
-            period: '2024 – Present',
+            period: '2025 – Present',
             current: true,
             bullets: [
                 'Led cloud infrastructure migrations on AWS, improving deployment reliability',
@@ -115,9 +113,9 @@ export const portfolioConfig: PortfolioConfig = {
         {
             id: 'exp-2',
             role: 'Software Engineer',
-            company: '[Previous Company]',
+            company: 'Autodesk Inc.',
             location: 'Singapore',
-            period: '20XX – 20XX',
+            period: '2021 – 2025',
             current: false,
             bullets: [
                 'Built REST APIs in Go and Python serving high-throughput production traffic',
@@ -127,10 +125,10 @@ export const portfolioConfig: PortfolioConfig = {
         },
         {
             id: 'exp-3',
-            role: 'Junior Software Engineer',
-            company: '[First Company]',
+            role: 'Software Development Engineer',
+            company: 'Zionext',
             location: 'Singapore',
-            period: '20XX – 20XX',
+            period: '2019 – 2021',
             current: false,
             bullets: [
                 'Developed full-stack features using React and Node.js',
@@ -141,15 +139,6 @@ export const portfolioConfig: PortfolioConfig = {
     ],
 
     projects: [
-        {
-            id: 'proj-1',
-            featured: true,
-            title: 'LLM Inference Server',
-            description:
-                'Self-hosted LLM deployment using Ollama with OpenAI-compatible API endpoints. Supports Qwen and Llama models with GPU passthrough on Proxmox.',
-            tags: ['Go', 'Ollama', 'Docker', 'Proxmox'],
-            githubUrl: 'https://github.com/yourusername/llm-inference-server',
-        },
         {
             id: 'proj-2',
             featured: true,
