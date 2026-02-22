@@ -2,6 +2,7 @@ import React from 'react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, waitFor, fireEvent } from '@/test/utils';
 import userEvent from '@testing-library/user-event';
+import { portfolioConfig } from '@/config/portfolio.config';
 
 vi.mock('framer-motion', () => ({
     motion: new Proxy(
@@ -33,18 +34,18 @@ describe('Contact', () => {
     it('renders email, GitHub, LinkedIn links with correct hrefs', () => {
         render(<Contact />);
         const emailLink = screen.getByRole('link', { name: 'Email' });
-        expect(emailLink).toHaveAttribute('href', 'mailto:your@email.com');
+        expect(emailLink).toHaveAttribute('href', `mailto:${portfolioConfig.personal.email}`);
 
         const githubLink = screen.getByRole('link', { name: 'GitHub' });
         expect(githubLink).toHaveAttribute(
             'href',
-            'https://github.com/yourusername'
+            portfolioConfig.personal.github
         );
 
         const linkedinLink = screen.getByRole('link', { name: 'LinkedIn' });
         expect(linkedinLink).toHaveAttribute(
             'href',
-            'https://linkedin.com/in/yourusername'
+            portfolioConfig.personal.linkedin
         );
     });
 

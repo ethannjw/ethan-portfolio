@@ -32,7 +32,7 @@ describe('Experience', () => {
         render(<Experience />);
         portfolioConfig.experience.forEach((exp) => {
             expect(screen.getByText(exp.role)).toBeInTheDocument();
-            expect(screen.getByText(exp.company, { exact: false })).toBeInTheDocument();
+            expect(screen.getAllByText(exp.company, { exact: false })[0]).toBeInTheDocument();
         });
     });
 });

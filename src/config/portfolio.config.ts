@@ -126,7 +126,7 @@ export const portfolioConfig: PortfolioConfig = {
         {
             id: 'exp-3',
             role: 'Software Development Engineer',
-            company: 'Zionext',
+            company: 'Zionext Pte Ltd',
             location: 'Singapore',
             period: '2019 – 2021',
             current: false,

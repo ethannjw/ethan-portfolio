@@ -1,6 +1,7 @@
 import React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@/test/utils';
+import { portfolioConfig } from '@/config/portfolio.config';
 
 vi.mock('framer-motion', () => ({
     motion: new Proxy(
@@ -44,7 +45,7 @@ describe('Hero', () => {
 
     it('renders the full name from config', () => {
         render(<Hero />);
-        expect(screen.getByText('Gerard Robinson')).toBeInTheDocument();
+        expect(screen.getByText(portfolioConfig.personal.name)).toBeInTheDocument();
     });
 
     it('renders primary CTA button', () => {

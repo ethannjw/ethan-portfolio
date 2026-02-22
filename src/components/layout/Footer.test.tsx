@@ -1,6 +1,7 @@
 import React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@/test/utils';
+import { portfolioConfig } from '@/config/portfolio.config';
 
 vi.mock('framer-motion', () => ({
     motion: new Proxy(
@@ -22,7 +23,7 @@ import Footer from './Footer';
 describe('Footer', () => {
     it('renders the owner name from config', () => {
         render(<Footer />);
-        expect(screen.getByText(/Gerard Robinson/)).toBeInTheDocument();
+        expect(screen.getByText(new RegExp(portfolioConfig.personal.name))).toBeInTheDocument();
     });
 
     it('renders the current year dynamically', () => {

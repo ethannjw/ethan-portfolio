@@ -2,6 +2,7 @@ import React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@/test/utils';
 import userEvent from '@testing-library/user-event';
+import { portfolioConfig } from '@/config/portfolio.config';
 
 vi.mock('framer-motion', () => ({
     motion: new Proxy(
@@ -36,7 +37,11 @@ import Navbar from './Navbar';
 describe('Navbar', () => {
     it('renders the name monogram', () => {
         render(<Navbar />);
-        expect(screen.getByText('GR')).toBeInTheDocument();
+        const initials = portfolioConfig.personal.name
+            .split(' ')
+            .map((n) => n[0])
+            .join('');
+        expect(screen.getByText(initials)).toBeInTheDocument();
     });
 
     it('renders all nav links', () => {
