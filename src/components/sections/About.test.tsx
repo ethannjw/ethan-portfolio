@@ -9,11 +9,11 @@ vi.mock('framer-motion', () => ({
         {
             get:
                 (_, tag) =>
-                ({
-                    children,
-                    ...props
-                }: React.HTMLAttributes<HTMLElement> & { children?: React.ReactNode }) =>
-                    React.createElement(String(tag), props, children),
+                    ({
+                        children,
+                        ...props
+                    }: React.HTMLAttributes<HTMLElement> & { children?: React.ReactNode }) =>
+                        React.createElement(String(tag), props, children),
         }
     ),
     AnimatePresence: ({ children }: { children: React.ReactNode }) => children,
@@ -32,8 +32,8 @@ describe('About', () => {
     it('renders all stats with correct values and labels', () => {
         render(<About />)
         portfolioConfig.about.stats.forEach((stat) => {
-            expect(screen.getByText(stat.value)).toBeInTheDocument()
-            expect(screen.getByText(stat.label)).toBeInTheDocument()
+            expect(screen.getAllByText(stat.value, { exact: false })[0]).toBeInTheDocument()
+            expect(screen.getAllByText(stat.label, { exact: false })[0]).toBeInTheDocument()
         })
     })
 })

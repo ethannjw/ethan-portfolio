@@ -40,7 +40,7 @@ export const portfolioConfig: PortfolioConfig = {
         stats: [
             { label: 'Years Experience', value: '5+' },
             { label: 'Based In', value: 'Singapore' },
-            { label: 'AWS Solutions Architect – Associate Certified', value: 'True' },
+            { label: 'AWS Solutions Architect Associate Certified', value: 'True' },
             { label: 'Generative AI with Large Language Models', value: 'Completed' },
             { label: 'Fundamentals of MCP Certified', value: 'True' },
         ],
