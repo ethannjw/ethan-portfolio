@@ -3,102 +3,96 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
+    html {
+        scroll-behavior: smooth;
+    }
 
-  body {
-    @apply bg-primary text-text-primary font-sans antialiased;
-  }
+    body {
+        @apply bg-primary text-text-primary font-sans antialiased;
+    }
 
-  /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
 
-  ::-webkit-scrollbar-track {
-    @apply bg-primary;
-  }
+    ::-webkit-scrollbar-track {
+        @apply bg-primary;
+    }
 
-  ::-webkit-scrollbar-thumb {
-    @apply bg-tertiary rounded-full;
-  }
+    ::-webkit-scrollbar-thumb {
+        @apply bg-tertiary rounded-full;
+    }
 
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-text-muted;
-  }
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-text-muted;
+    }
 }
 
 @layer components {
-  /* Animated grid background for Hero */
-  .hero-grid-bg {
-    background-size: 60px 60px;
-    background-image: linear-gradient(
-        to right,
-        rgba(56, 189, 248, 0.04) 1px,
-        transparent 1px
-      ),
-      linear-gradient(
-        to bottom,
-        rgba(56, 189, 248, 0.04) 1px,
-        transparent 1px
-      );
-    animation: gridPulse 8s ease-in-out infinite;
-  }
-
-  @keyframes gridPulse {
-    0%,
-    100% {
-      opacity: 0.5;
+    /* Animated grid background for Hero */
+    .hero-grid-bg {
+        background-size: 60px 60px;
+        background-image:
+            linear-gradient(to right, rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+        animation: gridPulse 8s ease-in-out infinite;
     }
-    50% {
-      opacity: 1;
+
+    @keyframes gridPulse {
+        0%,
+        100% {
+            opacity: 0.5;
+        }
+        50% {
+            opacity: 1;
+        }
     }
-  }
 
-  /* Typewriter cursor */
-  .typewriter-cursor::after {
-    content: '|';
-    @apply text-accent animate-pulse;
-  }
-
-  /* Gradient underline on hover */
-  .gradient-underline {
-    @apply relative inline-block;
-  }
-
-  .gradient-underline::after {
-    content: '';
-    @apply absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300;
-    background: linear-gradient(to right, #38bdf8, #818cf8);
-  }
-
-  .gradient-underline:hover::after {
-    @apply w-full;
-  }
-
-  /* Glow effect for cards */
-  .card-glow {
-    @apply transition-shadow duration-300;
-  }
-
-  .card-glow:hover {
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.15),
-      0 0 40px rgba(56, 189, 248, 0.05);
-  }
-
-  /* Bounce animation for scroll indicator */
-  .bounce-slow {
-    animation: bounceSlow 2s infinite;
-  }
-
-  @keyframes bounceSlow {
-    0%,
-    100% {
-      transform: translateY(0);
+    /* Typewriter cursor */
+    .typewriter-cursor::after {
+        content: '|';
+        @apply text-accent animate-pulse;
     }
-    50% {
-      transform: translateY(10px);
+
+    /* Gradient underline on hover */
+    .gradient-underline {
+        @apply relative inline-block;
     }
-  }
+
+    .gradient-underline::after {
+        content: '';
+        @apply absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300;
+        background: linear-gradient(to right, #38bdf8, #818cf8);
+    }
+
+    .gradient-underline:hover::after {
+        @apply w-full;
+    }
+
+    /* Glow effect for cards */
+    .card-glow {
+        @apply transition-shadow duration-300;
+    }
+
+    .card-glow:hover {
+        box-shadow:
+            0 0 20px rgba(56, 189, 248, 0.15),
+            0 0 40px rgba(56, 189, 248, 0.05);
+    }
+
+    /* Bounce animation for scroll indicator */
+    .bounce-slow {
+        animation: bounceSlow 2s infinite;
+    }
+
+    @keyframes bounceSlow {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(10px);
+        }
+    }
 }

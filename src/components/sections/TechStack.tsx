@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
-import { portfolioConfig } from '@/config/portfolio.config';
-import SectionHeading from '@/components/ui/SectionHeading';
-import SkillBadge from '@/components/ui/SkillBadge';
+import { motion } from 'framer-motion'
+import { portfolioConfig } from '@/config/portfolio.config'
+import SectionHeading from '@/components/ui/SectionHeading'
+import SkillBadge from '@/components/ui/SkillBadge'
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -9,15 +9,15 @@ const containerVariants = {
         opacity: 1,
         transition: { staggerChildren: 0.05, delayChildren: 0.2 },
     },
-};
+}
 
 const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
-};
+}
 
 export default function TechStack() {
-    const { skills } = portfolioConfig;
+    const { skills } = portfolioConfig
 
     return (
         <section id="techstack" className="py-20">
@@ -42,10 +42,7 @@ export default function TechStack() {
                             >
                                 {category.items.map((skill) => (
                                     <motion.div key={skill.name} variants={itemVariants}>
-                                        <SkillBadge
-                                            name={skill.name}
-                                            iconName={skill.iconName}
-                                        />
+                                        <SkillBadge name={skill.name} iconName={skill.iconName} />
                                     </motion.div>
                                 ))}
                             </motion.div>
@@ -54,5 +51,5 @@ export default function TechStack() {
                 </div>
             </div>
         </section>
-    );
+    )
 }

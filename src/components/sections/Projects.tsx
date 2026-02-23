@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
-import { portfolioConfig } from '@/config/portfolio.config';
-import SectionHeading from '@/components/ui/SectionHeading';
-import ProjectCard from '@/components/ui/ProjectCard';
+import { motion } from 'framer-motion'
+import { portfolioConfig } from '@/config/portfolio.config'
+import SectionHeading from '@/components/ui/SectionHeading'
+import ProjectCard from '@/components/ui/ProjectCard'
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -9,17 +9,17 @@ const containerVariants = {
         opacity: 1,
         transition: { staggerChildren: 0.1, delayChildren: 0.2 },
     },
-};
+}
 
 const itemVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0 },
-};
+}
 
 export default function Projects() {
-    const { projects } = portfolioConfig;
-    const featured = projects.filter((p) => p.featured);
-    const other = projects.filter((p) => !p.featured);
+    const { projects } = portfolioConfig
+    const featured = projects.filter((p) => p.featured)
+    const other = projects.filter((p) => !p.featured)
 
     return (
         <section id="projects" className="py-20">
@@ -69,5 +69,5 @@ export default function Projects() {
                 )}
             </div>
         </section>
-    );
+    )
 }

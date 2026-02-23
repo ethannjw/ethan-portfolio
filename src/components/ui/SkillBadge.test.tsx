@@ -1,12 +1,13 @@
-import React from 'react';
-import { describe, it, expect, vi } from 'vitest';
-import { render, screen } from '@/test/utils';
+import React from 'react'
+import { describe, it, expect, vi } from 'vitest'
+import { render, screen } from '@/test/utils'
 
 vi.mock('framer-motion', () => ({
     motion: new Proxy(
         {},
         {
-            get: (_, tag) =>
+            get:
+                (_, tag) =>
                 ({
                     children,
                     ...props
@@ -15,18 +16,18 @@ vi.mock('framer-motion', () => ({
         }
     ),
     AnimatePresence: ({ children }: { children: React.ReactNode }) => children,
-}));
+}))
 
-import SkillBadge from './SkillBadge';
+import SkillBadge from './SkillBadge'
 
 describe('SkillBadge', () => {
     it('renders skill name', () => {
-        render(<SkillBadge name="Docker" iconName="SiDocker" />);
-        expect(screen.getByText('Docker')).toBeInTheDocument();
-    });
+        render(<SkillBadge name="Docker" iconName="SiDocker" />)
+        expect(screen.getByText('Docker')).toBeInTheDocument()
+    })
 
     it('renders icon', () => {
-        render(<SkillBadge name="Docker" iconName="SiDocker" />);
-        expect(screen.getByLabelText('Docker icon')).toBeInTheDocument();
-    });
-});
+        render(<SkillBadge name="Docker" iconName="SiDocker" />)
+        expect(screen.getByLabelText('Docker icon')).toBeInTheDocument()
+    })
+})

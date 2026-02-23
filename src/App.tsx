@@ -1,15 +1,15 @@
-import { portfolioConfig } from '@/config/portfolio.config';
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
-import Hero from '@/components/sections/Hero';
-import About from '@/components/sections/About';
-import TechStack from '@/components/sections/TechStack';
-import Experience from '@/components/sections/Experience';
-import Projects from '@/components/sections/Projects';
-import Contact from '@/components/sections/Contact';
+import { portfolioConfig } from '@/config/portfolio.config'
+import Navbar from '@/components/layout/Navbar'
+import Footer from '@/components/layout/Footer'
+import Hero from '@/components/sections/Hero'
+import About from '@/components/sections/About'
+import TechStack from '@/components/sections/TechStack'
+import Experience from '@/components/sections/Experience'
+import Projects from '@/components/sections/Projects'
+import Contact from '@/components/sections/Contact'
 
 export default function App() {
-    const { seo } = portfolioConfig;
+    const { seo } = portfolioConfig
 
     return (
         <>
@@ -38,5 +38,5 @@ export default function App() {
                 <Footer />
             </div>
         </>
-    );
+    )
 }

@@ -1,13 +1,14 @@
-import React from 'react';
-import { describe, it, expect, vi } from 'vitest';
-import { render, screen } from '@/test/utils';
-import { portfolioConfig } from '@/config/portfolio.config';
+import React from 'react'
+import { describe, it, expect, vi } from 'vitest'
+import { render, screen } from '@/test/utils'
+import { portfolioConfig } from '@/config/portfolio.config'
 
 vi.mock('framer-motion', () => ({
     motion: new Proxy(
         {},
         {
-            get: (_, tag) =>
+            get:
+                (_, tag) =>
                 ({
                     children,
                     ...props
@@ -16,23 +17,23 @@ vi.mock('framer-motion', () => ({
         }
     ),
     AnimatePresence: ({ children }: { children: React.ReactNode }) => children,
-}));
+}))
 
-import Experience from './Experience';
+import Experience from './Experience'
 
 describe('Experience', () => {
     it('renders all experience entries', () => {
-        render(<Experience />);
-        expect(
-            screen.getAllByRole('heading', { level: 3 })
-        ).toHaveLength(portfolioConfig.experience.length);
-    });
+        render(<Experience />)
+        expect(screen.getAllByRole('heading', { level: 3 })).toHaveLength(
+            portfolioConfig.experience.length
+        )
+    })
 
     it('renders correct role and company for each entry', () => {
-        render(<Experience />);
+        render(<Experience />)
         portfolioConfig.experience.forEach((exp) => {
-            expect(screen.getByText(exp.role)).toBeInTheDocument();
-            expect(screen.getAllByText(exp.company, { exact: false })[0]).toBeInTheDocument();
-        });
-    });
-});
+            expect(screen.getByText(exp.role)).toBeInTheDocument()
+            expect(screen.getAllByText(exp.company, { exact: false })[0]).toBeInTheDocument()
+        })
+    })
+})

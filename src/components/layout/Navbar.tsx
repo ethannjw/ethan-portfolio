@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
-import { Link, animateScroll } from 'react-scroll';
-import { Menu, X, Download } from 'lucide-react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { portfolioConfig } from '@/config/portfolio.config';
+import { useState, useEffect } from 'react'
+import { Link, animateScroll } from 'react-scroll'
+import { Menu, X, Download } from 'lucide-react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { portfolioConfig } from '@/config/portfolio.config'
 
 const navLinks = [
     { label: 'About', to: 'about' },
@@ -10,31 +10,32 @@ const navLinks = [
     { label: 'Experience', to: 'experience' },
     { label: 'Projects', to: 'projects' },
     { label: 'Contact', to: 'contact' },
-];
+]
 
 export default function Navbar() {
-    const [isScrolled, setIsScrolled] = useState(false);
-    const [isMobileOpen, setIsMobileOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false)
+    const [isMobileOpen, setIsMobileOpen] = useState(false)
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+            setIsScrolled(window.scrollY > 20)
+        }
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
 
     const handleLogoClick = () => {
-        animateScroll.scrollToTop({ duration: 500, smooth: true });
-        setIsMobileOpen(false);
-    };
+        animateScroll.scrollToTop({ duration: 500, smooth: true })
+        setIsMobileOpen(false)
+    }
 
     return (
         <nav
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-                ? 'bg-primary/80 backdrop-blur-md border-b border-tertiary'
-                : 'bg-transparent'
-                }`}
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+                isScrolled
+                    ? 'bg-primary/80 backdrop-blur-md border-b border-tertiary'
+                    : 'bg-transparent'
+            }`}
         >
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
@@ -127,5 +128,5 @@ export default function Navbar() {
                 )}
             </AnimatePresence>
         </nav>
-    );
+    )
 }

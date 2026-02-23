@@ -1,12 +1,12 @@
-import { motion } from 'framer-motion';
-import { Link } from 'react-scroll';
-import { ChevronDown } from 'lucide-react';
-import { portfolioConfig } from '@/config/portfolio.config';
-import { useTypewriter } from '@/hooks/useTypewriter';
+import { motion } from 'framer-motion'
+import { Link } from 'react-scroll'
+import { ChevronDown } from 'lucide-react'
+import { portfolioConfig } from '@/config/portfolio.config'
+import { useTypewriter } from '@/hooks/useTypewriter'
 
 export default function Hero() {
-    const { personal, hero } = portfolioConfig;
-    const { displayText } = useTypewriter({ texts: hero.taglines });
+    const { personal, hero } = portfolioConfig
+    const { displayText } = useTypewriter({ texts: hero.taglines })
 
     return (
         <section
@@ -26,9 +26,7 @@ export default function Hero() {
                     transition={{ duration: 0.6, ease: 'easeOut' }}
                 >
                     {/* Greeting */}
-                    <p className="text-text-muted text-lg md:text-xl mb-2">
-                        {hero.greeting}
-                    </p>
+                    <p className="text-text-muted text-lg md:text-xl mb-2">{hero.greeting}</p>
 
                     {/* Name */}
                     <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-text-primary mb-3 gradient-underline">
@@ -83,5 +81,5 @@ export default function Hero() {
                 <ChevronDown className="text-text-muted bounce-slow" size={28} />
             </Link>
         </section>
-    );
+    )
 }

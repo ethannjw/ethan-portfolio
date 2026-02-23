@@ -1,13 +1,14 @@
-import React from 'react';
-import { describe, it, expect, vi } from 'vitest';
-import { render, screen } from '@/test/utils';
-import { portfolioConfig } from '@/config/portfolio.config';
+import React from 'react'
+import { describe, it, expect, vi } from 'vitest'
+import { render, screen } from '@/test/utils'
+import { portfolioConfig } from '@/config/portfolio.config'
 
 vi.mock('framer-motion', () => ({
     motion: new Proxy(
         {},
         {
-            get: (_, tag) =>
+            get:
+                (_, tag) =>
                 ({
                     children,
                     ...props
@@ -16,25 +17,25 @@ vi.mock('framer-motion', () => ({
         }
     ),
     AnimatePresence: ({ children }: { children: React.ReactNode }) => children,
-}));
+}))
 
-import Footer from './Footer';
+import Footer from './Footer'
 
 describe('Footer', () => {
     it('renders the owner name from config', () => {
-        render(<Footer />);
-        expect(screen.getByText(new RegExp(portfolioConfig.personal.name))).toBeInTheDocument();
-    });
+        render(<Footer />)
+        expect(screen.getByText(new RegExp(portfolioConfig.personal.name))).toBeInTheDocument()
+    })
 
     it('renders the current year dynamically', () => {
-        render(<Footer />);
-        const currentYear = new Date().getFullYear().toString();
-        expect(screen.getByText(new RegExp(currentYear))).toBeInTheDocument();
-    });
+        render(<Footer />)
+        const currentYear = new Date().getFullYear().toString()
+        expect(screen.getByText(new RegExp(currentYear))).toBeInTheDocument()
+    })
 
     it('renders GitHub and LinkedIn links', () => {
-        render(<Footer />);
-        expect(screen.getByLabelText('GitHub')).toBeInTheDocument();
-        expect(screen.getByLabelText('LinkedIn')).toBeInTheDocument();
-    });
-});
+        render(<Footer />)
+        expect(screen.getByLabelText('GitHub')).toBeInTheDocument()
+        expect(screen.getByLabelText('LinkedIn')).toBeInTheDocument()
+    })
+})

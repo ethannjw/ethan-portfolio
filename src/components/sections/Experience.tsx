@@ -1,9 +1,9 @@
-import { portfolioConfig } from '@/config/portfolio.config';
-import SectionHeading from '@/components/ui/SectionHeading';
-import TimelineItem from '@/components/ui/TimelineItem';
+import { portfolioConfig } from '@/config/portfolio.config'
+import SectionHeading from '@/components/ui/SectionHeading'
+import TimelineItem from '@/components/ui/TimelineItem'
 
 export default function Experience() {
-    const { experience } = portfolioConfig;
+    const { experience } = portfolioConfig
 
     return (
         <section id="experience" className="py-20">
@@ -17,5 +17,5 @@ export default function Experience() {
                 </div>
             </div>
         </section>
-    );
+    )
 }

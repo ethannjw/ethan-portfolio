@@ -1,8 +1,8 @@
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'
 
 interface SectionHeadingProps {
-    label: string;
-    heading: string;
+    label: string
+    heading: string
 }
 
 export default function SectionHeading({ label, heading }: SectionHeadingProps) {
@@ -15,9 +15,7 @@ export default function SectionHeading({ label, heading }: SectionHeadingProps) 
             transition={{ duration: 0.5 }}
         >
             <span className="font-mono text-sm text-accent mb-1 block">{label}</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-text-primary">
-                {heading}
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-text-primary">{heading}</h2>
         </motion.div>
-    );
+    )
 }

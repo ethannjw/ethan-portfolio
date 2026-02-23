@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
-import { portfolioConfig } from '@/config/portfolio.config';
-import SectionHeading from '@/components/ui/SectionHeading';
+import { motion } from 'framer-motion'
+import { portfolioConfig } from '@/config/portfolio.config'
+import SectionHeading from '@/components/ui/SectionHeading'
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -8,16 +8,16 @@ const containerVariants = {
         opacity: 1,
         transition: { staggerChildren: 0.1, delayChildren: 0.2 },
     },
-};
+}
 
 const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
-};
+}
 
 export default function About() {
-    const { personal, about } = portfolioConfig;
-    const currentRole = portfolioConfig.experience.find((e) => e.current);
+    const { personal, about } = portfolioConfig
+    const currentRole = portfolioConfig.experience.find((e) => e.current)
 
     return (
         <section id="about" className="py-20">
@@ -56,10 +56,7 @@ export default function About() {
                     <motion.div variants={itemVariants}>
                         <div className="space-y-4 mb-8">
                             {about.bio.map((paragraph, index) => (
-                                <p
-                                    key={index}
-                                    className="text-text-muted leading-relaxed"
-                                >
+                                <p key={index} className="text-text-muted leading-relaxed">
                                     {paragraph}
                                 </p>
                             ))}
@@ -72,9 +69,7 @@ export default function About() {
                                     key={stat.label}
                                     className="bg-secondary rounded-xl border border-tertiary p-4 text-center"
                                 >
-                                    <p className="text-2xl font-bold text-accent">
-                                        {stat.value}
-                                    </p>
+                                    <p className="text-2xl font-bold text-accent">{stat.value}</p>
                                     <p className="text-xs text-text-muted mt-1">{stat.label}</p>
                                 </div>
                             ))}
@@ -83,5 +78,5 @@ export default function About() {
                 </motion.div>
             </div>
         </section>
-    );
+    )
 }

@@ -1,9 +1,9 @@
-import { Github, Linkedin } from 'lucide-react';
-import { portfolioConfig } from '@/config/portfolio.config';
+import { Github, Linkedin } from 'lucide-react'
+import { portfolioConfig } from '@/config/portfolio.config'
 
 export default function Footer() {
-    const { personal } = portfolioConfig;
-    const currentYear = new Date().getFullYear();
+    const { personal } = portfolioConfig
+    const currentYear = new Date().getFullYear()
 
     return (
         <footer className="border-t border-tertiary py-8">
@@ -35,5 +35,5 @@ export default function Footer() {
                 </div>
             </div>
         </footer>
-    );
+    )
 }

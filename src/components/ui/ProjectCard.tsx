@@ -1,9 +1,9 @@
-import { motion } from 'framer-motion';
-import { Github, ExternalLink } from 'lucide-react';
-import type { Project } from '@/types';
+import { motion } from 'framer-motion'
+import { Github, ExternalLink } from 'lucide-react'
+import type { Project } from '@/types'
 
 interface ProjectCardProps {
-    project: Project;
+    project: Project
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
@@ -13,9 +13,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
         >
-            <h3 className="text-xl font-bold text-text-primary mb-2">
-                {project.title}
-            </h3>
+            <h3 className="text-xl font-bold text-text-primary mb-2">{project.title}</h3>
             <p className="text-text-muted text-sm leading-relaxed mb-4 flex-grow">
                 {project.description}
             </p>
@@ -54,5 +52,5 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 )}
             </div>
         </motion.div>
-    );
+    )
 }

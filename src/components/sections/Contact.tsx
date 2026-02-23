@@ -1,61 +1,61 @@
-import { useState, type FormEvent } from 'react';
-import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin, Send, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
-import { portfolioConfig } from '@/config/portfolio.config';
-import SectionHeading from '@/components/ui/SectionHeading';
+import { useState, type FormEvent } from 'react'
+import { motion } from 'framer-motion'
+import { Mail, Github, Linkedin, Send, Loader2, CheckCircle, AlertCircle } from 'lucide-react'
+import { portfolioConfig } from '@/config/portfolio.config'
+import SectionHeading from '@/components/ui/SectionHeading'
 
-type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
+type FormStatus = 'idle' | 'submitting' | 'success' | 'error'
 
 interface FormErrors {
-    name?: string;
-    email?: string;
-    message?: string;
+    name?: string
+    email?: string
+    message?: string
 }
 
 export default function Contact() {
-    const { personal, contact } = portfolioConfig;
-    const [formStatus, setFormStatus] = useState<FormStatus>('idle');
-    const [errors, setErrors] = useState<FormErrors>({});
+    const { personal, contact } = portfolioConfig
+    const [formStatus, setFormStatus] = useState<FormStatus>('idle')
+    const [errors, setErrors] = useState<FormErrors>({})
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         message: '',
-    });
+    })
 
     const validate = (): boolean => {
-        const newErrors: FormErrors = {};
-        if (!formData.name.trim()) newErrors.name = 'Name is required';
+        const newErrors: FormErrors = {}
+        if (!formData.name.trim()) newErrors.name = 'Name is required'
         if (!formData.email.trim()) {
-            newErrors.email = 'Email is required';
+            newErrors.email = 'Email is required'
         } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-            newErrors.email = 'Please enter a valid email';
+            newErrors.email = 'Please enter a valid email'
         }
-        if (!formData.message.trim()) newErrors.message = 'Message is required';
-        setErrors(newErrors);
-        return Object.keys(newErrors).length === 0;
-    };
+        if (!formData.message.trim()) newErrors.message = 'Message is required'
+        setErrors(newErrors)
+        return Object.keys(newErrors).length === 0
+    }
 
     const handleSubmit = async (e: FormEvent) => {
-        e.preventDefault();
-        if (!validate()) return;
+        e.preventDefault()
+        if (!validate()) return
 
-        setFormStatus('submitting');
+        setFormStatus('submitting')
         try {
             const response = await fetch(contact.formspreeEndpoint, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
-            });
+            })
             if (response.ok) {
-                setFormStatus('success');
-                setFormData({ name: '', email: '', message: '' });
+                setFormStatus('success')
+                setFormData({ name: '', email: '', message: '' })
             } else {
-                setFormStatus('error');
+                setFormStatus('error')
             }
         } catch {
-            setFormStatus('error');
+            setFormStatus('error')
         }
-    };
+    }
 
     return (
         <section id="contact" className="py-20">
@@ -209,5 +209,5 @@ export default function Contact() {
                 </motion.div>
             </div>
         </section>
-    );
+    )
 }
