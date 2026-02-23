@@ -4,7 +4,7 @@ Personal portfolio website built with React, Vite, TypeScript, Tailwind CSS, and
 
 ## Live Site
 
-[https://ngjingwei.com](https://ngjingwei.com) *(TBC)*
+[https://ngjingwei.com](https://ngjingwei.com)
 
 ## Tech Stack
 
@@ -72,3 +72,4 @@ Drop `avatar.jpg` into `public/` and update `config.personal.avatarUrl` to `"/av
 ## License
 
 MIT
+
