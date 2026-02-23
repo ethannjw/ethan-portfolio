@@ -151,7 +151,7 @@ export const portfolioConfig: PortfolioConfig = {
     projects: [
         {
             id: 'proj-2',
-            featured: true,
+            featured: false,
             title: 'Smart Home Automation Hub',
             description:
                 'Home Assistant setup with custom automations, MQTT integrations, and Grafana energy monitoring dashboards with alerting.',
@@ -169,7 +169,7 @@ export const portfolioConfig: PortfolioConfig = {
         },
         {
             id: 'proj-5',
-            featured: false,
+            featured: true,
             title: 'Portfolio Website',
             description:
                 'This site. Built with React, Vite, TypeScript, Tailwind CSS, and Framer Motion. Fully config-driven with unit tests.',
