@@ -1,10 +1,10 @@
-# Gerard Robinson — Portfolio
+# Ethan Ng — Portfolio
 
 Personal portfolio website built with React, Vite, TypeScript, Tailwind CSS, and Framer Motion. Fully config-driven — edit one file to customise everything.
 
 ## Live Site
 
-[https://yourdomain.com](https://yourdomain.com) *(TBC)*
+[https://ngjingwei.com](https://ngjingwei.com) *(TBC)*
 
 ## Tech Stack
 
