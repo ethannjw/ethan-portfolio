@@ -16,11 +16,10 @@ export default function TimelineItem({ experience }: TimelineItemProps) {
         >
             {/* Timeline dot */}
             <div
-                className={`absolute left-0 top-1.5 w-3 h-3 rounded-full border-2 ${
-                    experience.current
+                className={`absolute left-0 top-1.5 w-3 h-3 rounded-full border-2 ${experience.current
                         ? 'bg-accent border-accent shadow-lg shadow-accent/50'
                         : 'bg-secondary border-tertiary'
-                }`}
+                    }`}
             />
 
             {/* Content */}

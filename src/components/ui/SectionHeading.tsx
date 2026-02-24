@@ -15,7 +15,9 @@ export default function SectionHeading({ label, heading }: SectionHeadingProps) 
             transition={{ duration: 0.5 }}
         >
             <span className="font-mono text-sm text-accent mb-1 block">{label}</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-text-primary">{heading}</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary">
+                {heading}
+            </h2>
         </motion.div>
     )
 }

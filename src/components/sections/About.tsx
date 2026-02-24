@@ -63,14 +63,18 @@ export default function About() {
                         </div>
 
                         {/* Stats */}
-                        <div className="grid grid-cols-3 gap-4">
+                        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
                             {about.stats.map((stat) => (
                                 <div
                                     key={stat.label}
-                                    className="bg-secondary rounded-xl border border-tertiary p-4 text-center"
+                                    className="bg-secondary rounded-xl border border-tertiary p-3 md:p-4 text-center flex flex-col justify-center min-h-[110px] md:min-h-[140px]"
                                 >
-                                    <p className="text-2xl font-bold text-accent">{stat.value}</p>
-                                    <p className="text-xs text-text-muted mt-1">{stat.label}</p>
+                                    <p className="text-base sm:text-lg lg:text-2xl font-bold text-accent leading-tight mb-2 overflow-hidden text-ellipsis">
+                                        {stat.value}
+                                    </p>
+                                    <p className="text-[10px] sm:text-xs text-text-muted uppercase tracking-wider font-semibold leading-tight">
+                                        {stat.label}
+                                    </p>
                                 </div>
                             ))}
                         </div>
