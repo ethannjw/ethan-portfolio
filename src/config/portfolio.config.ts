@@ -9,7 +9,7 @@ export const portfolioConfig: PortfolioConfig = {
         github: 'https://github.com/ethannjw',
         linkedin: 'https://www.linkedin.com/in/ethan-ng-09682447/',
         resumeUrl: '/2026_NgJingWei_CV_online.pdf',
-        avatarUrl: '/avatar.jpg',
+        avatarUrl: '/ethan_cyberpunk.JPG',
     },
 
     seo: {
@@ -17,7 +17,7 @@ export const portfolioConfig: PortfolioConfig = {
         description:
             'Senior Software Engineer based in Singapore specialising in cloud infrastructure, automation, and full-stack development.',
         siteUrl: 'https://ngjingwei.com',
-        ogImage: '/og-image.png',
+        ogImage: '/ethan_cyberpunk.JPG',
     },
 
     hero: {
